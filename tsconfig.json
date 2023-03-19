@@ -13,10 +13,9 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@common/*":["src/common/*"],
-      "@config":["src/config"],
-      "@auth":["src/modules/auth"],
-      "@modules/*":["src/modules/*"],
+      "@common/*": ["src/common/*"],
+      "@auth": ["src/modules/auth"],
+      "@modules/*": ["src/modules/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
@@ -24,14 +23,8 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
+    "noFallthroughCasesInSwitch": false
   },
-  "include": [
-    "src/**/*",
-    "test/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-  ]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
