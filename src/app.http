@@ -1,0 +1,3 @@
+### Get  hello world message
+
+GET http://localhost:4000/api/home
