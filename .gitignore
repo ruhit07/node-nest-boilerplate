@@ -2,10 +2,6 @@
 /dist
 /node_modules
 
-# IDE - vscode
-.vscode/*
-!.vscode/settings.json
-
 # Environment
 .env*
 !.env.example
