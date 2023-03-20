@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { envConfigValidation } from './config/env.config';
+import { envConfigValidation } from './config';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -11,6 +12,8 @@ import { envConfigValidation } from './config/env.config';
       envFilePath: `.env.${process.env.NODE_ENV}`,
       validationSchema: envConfigValidation,
     }),
+
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
