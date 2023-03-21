@@ -1,3 +1,4 @@
+import { UserModule } from '@modules/user/user.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -14,6 +15,7 @@ import { DatabaseModule } from './database/database.module';
     }),
 
     DatabaseModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
