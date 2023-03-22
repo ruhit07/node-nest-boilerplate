@@ -1,0 +1,19 @@
+
+### Register
+POST http://localhost:3900/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ruhit Hassan",
+  "username": "ruhithassan",
+  "password": "12345678"
+}
+
+### Login
+POST http://localhost:3900/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "ruhithassan",
+  "password": "12345678"
+}

@@ -44,6 +44,12 @@ export class UserService {
     return user;
   }
 
+  async findUser(id: string): Promise<any> {
+    this.logger.log(`${this.getUser.name}Service Called`);
+
+    return this.userRepo.findOne({ where: { id } });
+  }
+
   async createUser(ctx: RequestContextDto, createUserDto: CreateUserDto): Promise<UserEntity> {
     this.logger.log(`${this.createUser.name}Service Called`);
 
