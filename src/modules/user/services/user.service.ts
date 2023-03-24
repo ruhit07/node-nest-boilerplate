@@ -50,6 +50,10 @@ export class UserService {
     return this.userRepo.findOne({ where: { id } });
   }
 
+  findUserByUsername(username: string): Promise<UserEntity> {
+    return this.userRepo.findOne({ where: { username } });
+  }
+
   async createUser(ctx: RequestContextDto, createUserDto: CreateUserDto): Promise<UserEntity> {
     this.logger.log(`${this.createUser.name}Service Called`);
 
