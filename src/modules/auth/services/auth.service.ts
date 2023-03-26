@@ -1,5 +1,6 @@
 import { RequestContextDto } from '@common/dtos/request-context.dto';
 import { CreateUserDto, UserDto } from '@modules/user/dtos';
+import { UserEntity } from '@modules/user/entities/user.entity';
 import { UserService } from '@modules/user/services/user.service';
 import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { JwtService, JwtSignOptions } from '@nestjs/jwt';
@@ -45,6 +46,25 @@ export class AuthService {
       user,
       token,
     };
+  }
+
+  async getMe(ctx: RequestContextDto): Promise<UserEntity> {
+    this.logger.log(`${this.getMe.name}Service Called`);
+
+    if (!ctx.user) {
+      throw new UnauthorizedException();
+    }
+
+    return this.userService.getUser(ctx, ctx.user.id);
+  }
+
+  async deleteMe(ctx: RequestContextDto): Promise<UserEntity> {
+    this.logger.log(`${this.deleteMe.name}Service Called`);
+
+    if (!ctx.user) {
+      throw new UnauthorizedException();
+    }
+    return this.userService.deleteUser(ctx, ctx.user.id);
   }
 
   private generateAccessToken(ctx: RequestContextDto, user: UserDto): Promise<string> {
