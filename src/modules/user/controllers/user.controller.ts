@@ -1,12 +1,26 @@
 import { UserService } from '../services/user.service';
-import { Body, Controller, Delete, Get, Logger, Param, ParseUUIDPipe, Patch, Post, Put, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Logger,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  Put,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { RequestContext } from '@common/decorators/request-context.decorator';
 import { RequestContextDto } from '@common/dtos/request-context.dto';
 import { BaseApiSuccessResponse } from '@common/dtos/base-api-response.dto';
 import { Serialize } from '@common/interceptors/serialize.interceptor';
 import { CreateUserDto, FilterUserDto, UpdatePasswordDto, UpdateUserDto, UserDto } from '../dtos';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
 
-// Guard
+@UseGuards(JwtAuthGuard)
 @Serialize(UserDto)
 @Controller('users')
 export class UserController {
